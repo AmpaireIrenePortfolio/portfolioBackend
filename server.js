@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const apiRoutes = require('./routes');
 
+const path = require('path');
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -15,6 +17,9 @@ mongoose.connect(process.env.MONGO_URI)
 // --- Middleware ---
 app.use(cors()); // Enable Cross-Origin Resource Sharing
 app.use(express.json()); // Allow server to accept JSON in request body
+
+
+app.use('/static', express.static(path.join(__dirname, 'public')));
 
 // --- Routes ---
 app.use('/api', apiRoutes); // All API routes will be prefixed with /api
