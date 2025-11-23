@@ -45,7 +45,27 @@ const createProject = async (req, res) => {
   }
 };
 
+// ... (keep the other functions like getAllProjects and createProject)
+
+// UPDATE A PROJECT (THIS IS THE NEW FUNCTION TO ADD)
+const updateProject = async (req, res) => {
+  try {
+    const { id } = req.params; // Get the id from the URL
+    const updatedProject = await Project.findByIdAndUpdate(id, req.body, { new: true });
+
+    if (!updatedProject) {
+      return res.status(404).json({ message: 'Project not found.' });
+    }
+
+    res.status(200).json(updatedProject);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Could not update project.' });
+  }
+};
+
 module.exports = {
   getAllProjects,
-  createProject  // Now it's properly defined and exported
+  createProject, // Now it's properly defined and exported
+  updateProject
 };

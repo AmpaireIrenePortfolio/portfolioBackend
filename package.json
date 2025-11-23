@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -18,10 +19,12 @@
   "homepage": "https://github.com/Irene-Ampaire/API_PORTFOLIO#readme",
   "description": "",
   "dependencies": {
+    "@getbrevo/brevo": "^3.0.1",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "mongoose": "^8.19.4",
-    "nodemailer": "^7.0.10"
+    "nodemailer": "^7.0.10",
+    "resend": "^6.5.2"
   }
 }
